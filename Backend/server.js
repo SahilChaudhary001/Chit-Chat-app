@@ -9,9 +9,11 @@ import dotenv from "dotenv";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { server ,app } from './socket/socket.js';
 // import cors from "cors";
+import job from "./cron.js";
 
 dotenv.config(); 
 const PORT=process.env.PORT;
+job.start(); 
 const __dirname = path.resolve();
 app.use(express.json())
 app.use(cookieParser());
